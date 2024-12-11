@@ -9,24 +9,40 @@
             IFigure figure;
             IFigure clonedFigure;
 
+            // Output for Rectangle
             figure = new Rectangle(10, 20);
             clonedFigure = figure.Clone();
-            figure.GetInfo();
-            clonedFigure.GetInfo();
+            DisplayFigureInfo("Прямокутник", figure, clonedFigure);
             Console.WriteLine();
 
+            // Output for Circle
             figure = new Circle(15);
             clonedFigure = figure.Clone();
-            figure.GetInfo();
-            clonedFigure.GetInfo();
+            DisplayFigureInfo("Коло", figure, clonedFigure);
             Console.WriteLine();
 
+            // Output for Triangle
             figure = new Triangle(3, 4, 5);
             clonedFigure = figure.Clone();
-            figure.GetInfo();
-            clonedFigure.GetInfo();
+            DisplayFigureInfo("Трикутник", figure, clonedFigure);
 
             Console.Read();
+        }
+
+        static void DisplayFigureInfo(string figureName, IFigure original, IFigure clone)
+        {
+            Console.WriteLine("--------------------------------------------------");
+            Console.WriteLine($"Інформація про {figureName}:");
+            Console.WriteLine("--------------------------------------------------");
+
+            Console.WriteLine("Оригінал:");
+            original.GetInfo();
+            Console.WriteLine();
+
+            Console.WriteLine("Копія:");
+            clone.GetInfo();
+
+            Console.WriteLine("--------------------------------------------------");
         }
     }
 
@@ -51,7 +67,8 @@
         }
         public void GetInfo()
         {
-            Console.WriteLine("Прямокутник з висотою {0} та шириною {1}", height, width);
+            Console.WriteLine($"\t - Висота: {height} одиниць");
+            Console.WriteLine($"\t - Ширина: {width} одиниць");
         }
     }
 
@@ -68,7 +85,7 @@
         }
         public void GetInfo()
         {
-            Console.WriteLine("Коло з радіусом {0}", radius);
+            Console.WriteLine($"\t - Радіус: {radius} одиниць");
         }
     }
 
@@ -89,7 +106,9 @@
         }
         public void GetInfo()
         {
-            Console.WriteLine("Трикутник з такими сторонами:\n  - перша сторона {0} одиниць\n  - друга сторона {1} одиниць\n  - третя сторона {2} одиниць", firstSide, secondSide, thirdSide);
+            Console.WriteLine($"\t - Перша сторона: {firstSide} одиниць");
+            Console.WriteLine($"\t - Друга сторона: {secondSide} одиниць");
+            Console.WriteLine($"\t - Третя сторона: {thirdSide} одиниць");
         }
     }
 }
